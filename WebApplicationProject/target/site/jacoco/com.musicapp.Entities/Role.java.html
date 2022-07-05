@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Role.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MusicWebApplication</a> &gt; <a href="index.source.html" class="el_package">com.musicapp.Entities</a> &gt; <span class="el_source">Role.java</span></div><h1>Role.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.musicapp.Entities;
+
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author mrg1813
+ */
+@Entity
+@Table(name = &quot;Role&quot;)
+public class Role {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;u_Id&quot;, nullable = false, unique = true)
+    private Long uId;
+
+    @Column(name = &quot;u_Desc&quot;, nullable = false)
+    private String uDesc;
+
+    // creating default constructor
+    // constructor is used to initialize the object in java
+<span class="nc" id="L34">    public Role() {</span>
+
+<span class="nc" id="L36">    }</span>
+
+    // creating paramter constructor
+<span class="nc" id="L39">    public Role(Long uId, String uDesc) {</span>
+<span class="nc" id="L40">        this.uId = uId;</span>
+<span class="nc" id="L41">        this.uDesc = uDesc;</span>
+<span class="nc" id="L42">    }</span>
+
+    // creating constructor
+<span class="nc" id="L45">    public Role(String uDesc) {</span>
+
+<span class="nc" id="L47">        this.uDesc = uDesc;</span>
+<span class="nc" id="L48">    }</span>
+
+    public void setuId(Long uId) {
+<span class="nc" id="L51">        this.uId = uId;</span>
+<span class="nc" id="L52">    }</span>
+
+    public String getuDesc() {
+<span class="nc" id="L55">        return uDesc;</span>
+    }
+
+    public void setuDesc(String uDesc) {
+<span class="nc" id="L59">        this.uDesc = uDesc;</span>
+<span class="nc" id="L60">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L64">        int hash = 5;</span>
+<span class="nc" id="L65">        hash = 37 * hash + Objects.hashCode(this.uDesc);</span>
+<span class="nc" id="L66">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L72">            return true;</span>
+        }
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L75">            return false;</span>
+        }
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L78">            return false;</span>
+        }
+<span class="nc" id="L80">        final Role other = (Role) obj;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (!Objects.equals(this.uDesc, other.uDesc)) {</span>
+<span class="nc" id="L82">            return false;</span>
+        }
+<span class="nc" id="L84">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L89">        return &quot;Role{&quot; + &quot;uId=&quot; + uId + &quot;, uDesc=&quot; + uDesc + '}';</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

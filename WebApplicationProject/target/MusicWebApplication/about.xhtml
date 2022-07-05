@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Music Shop</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/base.xhtml">  
+            <ui:define name="content">
+               
+                <p:card style="background-color: white; width: 100%; height: 100vh; margin-top: 55px;">
+                    
+                   <p style="margin-top: 100px; color: balck;">Your username is : #{userController.user.username}</p>
+                    <p>Your password is: #{userController.user.password}</p>
+                </p:card>
+             
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+

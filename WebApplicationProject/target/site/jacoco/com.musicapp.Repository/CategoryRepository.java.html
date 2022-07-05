@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CategoryRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MusicWebApplication</a> &gt; <a href="index.source.html" class="el_package">com.musicapp.Repository</a> &gt; <span class="el_source">CategoryRepository.java</span></div><h1>CategoryRepository.java</h1><pre class="source lang-java linenums">
+package com.musicapp.Repository;
+
+import com.musicapp.Entities.Category;
+import java.io.Serializable;
+import java.util.List;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+/**
+ *
+ * @author mrg1813
+ */
+@Stateless
+<span class="nc" id="L16">public class CategoryRepository implements Serializable {</span>
+
+    @PersistenceContext(name = &quot;sample&quot;)
+    private EntityManager entityManager;
+
+    public EntityManager getEntityManger() {
+<span class="nc" id="L22">        return entityManager;</span>
+    }
+
+    public void create(Category category) {
+<span class="nc" id="L26">        getEntityManger().persist(category);</span>
+<span class="nc" id="L27">        getEntityManger().flush();</span>
+<span class="nc" id="L28">    }</span>
+
+    public void edit(Category category) {
+<span class="nc" id="L31">        getEntityManger().merge(category);</span>
+<span class="nc" id="L32">        getEntityManger().flush();</span>
+<span class="nc" id="L33">    }</span>
+
+    public void delete(Category category) {
+<span class="nc" id="L36">        getEntityManger().remove(findById(category.getId()));</span>
+<span class="nc" id="L37">        getEntityManger().flush();</span>
+<span class="nc" id="L38">    }</span>
+
+    public List&lt;Category&gt; findAll() {
+<span class="nc" id="L41">        return getEntityManger().createQuery(&quot;select c from Category c&quot;, Category.class).getResultList();</span>
+
+    }
+
+    public Category findById(Long id) {
+<span class="nc" id="L46">        return getEntityManger().find(Category.class, id);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

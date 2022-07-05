@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MusicWebApplication</a> &gt; <a href="index.source.html" class="el_package">com.musicapp.Entities</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package com.musicapp.Entities;
+
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author mrg1813
+ */
+@Entity
+@Table(name = &quot;user_tbl&quot;)
+public class User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;User_Id&quot;, nullable = false, unique = true)
+    private Integer id;
+
+    @Column(name = &quot;First_Name&quot;, nullable = false)
+    private String firstname;
+
+    @Column(name = &quot;Last_Name&quot;, nullable = false)
+    private String lastname;
+
+    @Column(name = &quot;Username&quot;, nullable = false)
+    private String username;
+
+    @Column(name = &quot;Email&quot;, nullable = false, unique = true)
+    private String emial;
+
+    @Column(name = &quot;Password&quot;, nullable = false)
+    private String password;
+
+    @Column
+    private String pic;
+
+    @Column
+    private boolean enable;
+
+    //@Column(name = &quot;UserType&quot;)
+    //private String userType;
+    // creating default constructor
+<span class="nc" id="L49">    public User() {</span>
+
+<span class="nc" id="L51">    }</span>
+
+<span class="nc" id="L53">    public User(String firstname, String lastname, String username, String emial, String password, String pic) {</span>
+<span class="nc" id="L54">        this.firstname = firstname;</span>
+<span class="nc" id="L55">        this.lastname = lastname;</span>
+<span class="nc" id="L56">        this.username = username;</span>
+<span class="nc" id="L57">        this.emial = emial;</span>
+<span class="nc" id="L58">        this.password = password;</span>
+<span class="nc" id="L59">        this.pic = pic;</span>
+
+<span class="nc" id="L61">    }</span>
+
+    public Integer getId() {
+<span class="nc" id="L64">        return id;</span>
+    }
+
+    public void setId(Integer id) {
+<span class="nc" id="L68">        this.id = id;</span>
+<span class="nc" id="L69">    }</span>
+
+    public String getFirstname() {
+<span class="nc" id="L72">        return firstname;</span>
+    }
+
+    public void setFirstname(String firstname) {
+<span class="nc" id="L76">        this.firstname = firstname;</span>
+<span class="nc" id="L77">    }</span>
+
+    public String getLastname() {
+<span class="nc" id="L80">        return lastname;</span>
+    }
+
+    public void setLastname(String lastname) {
+<span class="nc" id="L84">        this.lastname = lastname;</span>
+<span class="nc" id="L85">    }</span>
+
+    public String getUsername() {
+<span class="nc" id="L88">        return username;</span>
+    }
+
+    public void setUsername(String username) {
+<span class="nc" id="L92">        this.username = username;</span>
+<span class="nc" id="L93">    }</span>
+
+    public String getEmial() {
+<span class="nc" id="L96">        return emial;</span>
+    }
+
+    public void setEmial(String emial) {
+<span class="nc" id="L100">        this.emial = emial;</span>
+<span class="nc" id="L101">    }</span>
+
+    public String getPassword() {
+<span class="nc" id="L104">        return password;</span>
+    }
+
+    public void setPassword(String password) {
+<span class="nc" id="L108">        this.password = password;</span>
+<span class="nc" id="L109">    }</span>
+
+    public String getPic() {
+<span class="nc" id="L112">        return pic;</span>
+    }
+
+    public void setPic(String pic) {
+<span class="nc" id="L116">        this.pic = pic;</span>
+<span class="nc" id="L117">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L121">        int hash = 5;</span>
+<span class="nc" id="L122">        hash = 97 * hash + Objects.hashCode(this.firstname);</span>
+<span class="nc" id="L123">        hash = 97 * hash + Objects.hashCode(this.lastname);</span>
+<span class="nc" id="L124">        hash = 97 * hash + Objects.hashCode(this.username);</span>
+<span class="nc" id="L125">        hash = 97 * hash + Objects.hashCode(this.emial);</span>
+<span class="nc" id="L126">        hash = 97 * hash + Objects.hashCode(this.password);</span>
+<span class="nc" id="L127">        hash = 97 * hash + Objects.hashCode(this.pic);</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        hash = 97 * hash + (this.enable ? 1 : 0);</span>
+<span class="nc" id="L129">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L135">            return true;</span>
+        }
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L138">            return false;</span>
+        }
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L141">            return false;</span>
+        }
+<span class="nc" id="L143">        final User other = (User) obj;</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        if (this.enable != other.enable) {</span>
+<span class="nc" id="L145">            return false;</span>
+        }
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (!Objects.equals(this.firstname, other.firstname)) {</span>
+<span class="nc" id="L148">            return false;</span>
+        }
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        if (!Objects.equals(this.lastname, other.lastname)) {</span>
+<span class="nc" id="L151">            return false;</span>
+        }
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        if (!Objects.equals(this.username, other.username)) {</span>
+<span class="nc" id="L154">            return false;</span>
+        }
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        if (!Objects.equals(this.emial, other.emial)) {</span>
+<span class="nc" id="L157">            return false;</span>
+        }
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        if (!Objects.equals(this.password, other.password)) {</span>
+<span class="nc" id="L160">            return false;</span>
+        }
+<span class="nc bnc" id="L162" title="All 2 branches missed.">        if (!Objects.equals(this.pic, other.pic)) {</span>
+<span class="nc" id="L163">            return false;</span>
+        }
+<span class="nc" id="L165">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L170">        return &quot;User{&quot; + &quot;id=&quot; + id + &quot;, firstname=&quot; + firstname + &quot;, lastname=&quot; + lastname + &quot;, username=&quot; + username + &quot;, emial=&quot; + emial + &quot;, password=&quot; + password + &quot;, pic=&quot; + pic + &quot;, enable=&quot; + enable + '}';</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

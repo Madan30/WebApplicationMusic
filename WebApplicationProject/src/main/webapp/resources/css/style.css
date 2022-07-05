@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.menu{
+   
+    text-align: center;
+    
+}
+.menu .ui-menu-list{
+    width: 100%;
+   
+}
+
+.head{
+    margin-top: 20px;
+}
+
+
+
+
+

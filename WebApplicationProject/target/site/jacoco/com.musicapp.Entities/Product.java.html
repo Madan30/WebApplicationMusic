@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Product.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MusicWebApplication</a> &gt; <a href="index.source.html" class="el_package">com.musicapp.Entities</a> &gt; <span class="el_source">Product.java</span></div><h1>Product.java</h1><pre class="source lang-java linenums">package com.musicapp.Entities;
+
+import java.io.Serializable;
+
+import java.util.Objects;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = &quot;product&quot;)
+public class Product implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;, nullable = false, unique = true)
+    private Long id;
+
+    @Column(name = &quot;name&quot;, nullable = false)
+    private String name;
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    private Category category;
+
+    @Column(name = &quot;price&quot;, nullable = false)
+    private int price;
+
+    @Column(name = &quot;description&quot;, nullable = true)
+    private String description;
+
+    @Column(name = &quot;quantity&quot;, nullable = false)
+    private int quantity;
+
+
+    @Column(name = &quot;stock&quot;, nullable = false)
+    private boolean stock;
+
+    @Column(name = &quot;code&quot;, nullable = false)
+    private String code;
+
+<span class="nc" id="L46">    public Product() {</span>
+
+<span class="nc" id="L48">    }</span>
+
+    public Long getId() {
+<span class="nc" id="L51">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L55">        this.id = id;</span>
+<span class="nc" id="L56">    }</span>
+
+    public String getName() {
+<span class="nc" id="L59">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L63">        this.name = name;</span>
+<span class="nc" id="L64">    }</span>
+
+    public Category getCategory() {
+<span class="nc" id="L67">        return category;</span>
+    }
+
+    public void setCategory(Category category) {
+<span class="nc" id="L71">        this.category = category;</span>
+<span class="nc" id="L72">    }</span>
+
+    public int getPrice() {
+<span class="nc" id="L75">        return price;</span>
+    }
+
+    public void setPrice(int price) {
+<span class="nc" id="L79">        this.price = price;</span>
+<span class="nc" id="L80">    }</span>
+
+    public String getDescription() {
+<span class="nc" id="L83">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="nc" id="L87">        this.description = description;</span>
+<span class="nc" id="L88">    }</span>
+
+    public int getQuantity() {
+<span class="nc" id="L91">        return quantity;</span>
+    }
+
+    public void setQuantity(int quantity) {
+<span class="nc" id="L95">        this.quantity = quantity;</span>
+<span class="nc" id="L96">    }</span>
+
+    public String getCode() {
+<span class="nc" id="L99">        return code;</span>
+    }
+
+    public void setCode(String code) {
+<span class="nc" id="L103">        this.code = code;</span>
+<span class="nc" id="L104">    }</span>
+
+
+
+    public boolean isStock() {
+<span class="nc" id="L109">        return stock;</span>
+    }
+
+    public void setStock(boolean stock) {
+<span class="nc" id="L113">        this.stock = stock;</span>
+<span class="nc" id="L114">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L118">        int hash = 7;</span>
+<span class="nc" id="L119">        hash = 71 * hash + Objects.hashCode(this.name);</span>
+<span class="nc" id="L120">        hash = 71 * hash + Objects.hashCode(this.category);</span>
+<span class="nc" id="L121">        hash = 71 * hash + this.price;</span>
+<span class="nc" id="L122">        hash = 71 * hash + Objects.hashCode(this.description);</span>
+<span class="nc" id="L123">        hash = 71 * hash + this.quantity;</span>
+     
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        hash = 71 * hash + (this.stock ? 1 : 0);</span>
+<span class="nc" id="L126">        hash = 71 * hash + Objects.hashCode(this.code);</span>
+<span class="nc" id="L127">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L133">            return true;</span>
+        }
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L136">            return false;</span>
+        }
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L139">            return false;</span>
+        }
+<span class="nc" id="L141">        final Product other = (Product) obj;</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (this.price != other.price) {</span>
+<span class="nc" id="L143">            return false;</span>
+        }
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (this.quantity != other.quantity) {</span>
+<span class="nc" id="L146">            return false;</span>
+        }
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (this.stock != other.stock) {</span>
+<span class="nc" id="L149">            return false;</span>
+        }
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (!Objects.equals(this.name, other.name)) {</span>
+<span class="nc" id="L152">            return false;</span>
+        }
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (!Objects.equals(this.description, other.description)) {</span>
+<span class="nc" id="L155">            return false;</span>
+        }
+      
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (!Objects.equals(this.code, other.code)) {</span>
+<span class="nc" id="L159">            return false;</span>
+        }
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        if (!Objects.equals(this.category, other.category)) {</span>
+<span class="nc" id="L162">            return false;</span>
+        }
+<span class="nc" id="L164">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L169">        return &quot;Product{&quot; + &quot;id=&quot; + id + &quot;, name=&quot; + name + &quot;, category=&quot; + category + &quot;, price=&quot; + price + &quot;, description=&quot; + description + &quot;, quantity=&quot; + quantity + &quot;, image=&quot; + &quot;, stock=&quot; + stock + &quot;, code=&quot; + code + '}';</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

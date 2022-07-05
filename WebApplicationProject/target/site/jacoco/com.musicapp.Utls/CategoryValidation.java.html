@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CategoryValidation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MusicWebApplication</a> &gt; <a href="index.source.html" class="el_package">com.musicapp.Utls</a> &gt; <span class="el_source">CategoryValidation.java</span></div><h1>CategoryValidation.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.musicapp.Utls;
+
+import com.musicapp.Entities.Category;
+import java.io.Serializable;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.FacesValidator;
+import javax.faces.validator.ValidatorException;
+import javax.inject.Inject;
+
+
+/**
+ *
+ * @author mrg1813
+ */
+@ManagedBean
+@SessionScoped
+@FacesValidator(&quot;categoryValidator&quot;)
+<span class="nc" id="L28">public class CategoryValidation implements Serializable {</span>
+    
+   
+
+    @ManagedProperty(value = &quot;#{category}&quot;)
+    @Inject
+    private Category category;
+
+    public Category getCategory() {
+<span class="nc" id="L37">        return category;</span>
+    }
+
+    public void setCategory(Category category) {
+<span class="nc" id="L41">        this.category = category;</span>
+<span class="nc" id="L42">    }</span>
+    
+    
+
+    public void validate(FacesContext context, UIComponent ui, Object object) throws ValidatorException {
+<span class="nc" id="L47">        String name = (String) object;</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (name.length() &gt; 3) {</span>
+<span class="nc" id="L50">            FacesMessage fm = new FacesMessage(&quot;Category Name should be at least four character&quot;);</span>
+<span class="nc" id="L51">            fm.setSeverity(FacesMessage.SEVERITY_ERROR);</span>
+
+<span class="nc" id="L53">            throw new ValidatorException(fm);</span>
+        }
+
+<span class="nc" id="L56">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Music Shop</title>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="templates/base.xhtml">
+            <ui:define name="content">
+
+                <p:card style="background-color: darkgray;">
+                    <h2 align="center" style="margin-top: 70px; color: white;  font-style: bold;">Register Here!</h2>
+                    <p:panelGrid columns="4"
+                                 columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                                 layout="grid"
+                                 styleClass="ui-panelgrid-blank ui-fluid"
+                                 style="border:solid; margin-top: 30px; background-color: transparent;">
+
+                        <p:outputLabel for="@next" value="First Name"/>
+                        <p:inputText  required="true" requiredMessage="firstname is required"/>
+                           
+                        
+                        <p:outputLabel for="@next" value="Last Name"/>
+                        <p:inputText required="ture" requiredMessage="lastname is required"/>
+
+                        <p:outputLabel for="@next" value="Email"/>
+                        <p:inputText required="true" type="email"/>
+
+                        <p:outputLabel for="@next" value="username"/>
+                        <p:inputText required="true"/>
+
+                        <p:outputLabel for="@next" value="Password"/>
+                        <p:inputMask required="true" id="password" type="Password"/>
+
+                        <p:outputLabel for="checkbox" value="Enable"/>
+                        <p:selectBooleanCheckbox id="checkbox"/>
+
+                        <p:row>
+                            <p:column styleClass="ui-grid-col-12" >
+                                <p:commandButton value="Register" styleClass="p-mr-2" style="width: auto;"  action="Submit"/>
+                            </p:column>
+                        </p:row>
+
+                    </p:panelGrid>
+                </p:card>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
